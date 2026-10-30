@@ -370,6 +370,7 @@ body::before {
     border-bottom: 1px dashed var(--line-strong);
     padding-bottom: 8px;
     color: var(--body);
+    overflow-wrap: anywhere; /* lets long URLs wrap instead of overflowing the card */
 }
 
 .details-list strong {
@@ -379,10 +380,44 @@ body::before {
     min-width: 110px;
 }
 
+/* ---------------------------------------------------------
+   URL link inside prodigy cards
+   --------------------------------------------------------- */
 .details-list a {
     color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    text-decoration: none;
+    font-family: var(--mono);
+    font-size: 0.88em;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    border-bottom: 1px solid var(--accent-line);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.details-list a:hover,
+.details-list a:focus-visible {
+    color: var(--accent-hover);
+    border-bottom-color: var(--accent-hover);
+}
+
+.details-list a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+/* External-link arrow after the URL */
+.details-list a::after {
+    content: " \2197"; /* ↗ */
+    font-size: 0.85em;
+    opacity: 0.65;
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.details-list a:hover::after {
+    opacity: 1;
+    transform: translate(1px, -1px);
 }
 
 /* Marquee Animations */
@@ -420,7 +455,7 @@ body::before {
    font-icon) so nothing bleeds past the border.
    ========================================================= */
 
-/* --- Sponsor logos: circular frames with generous padding --- */
+/* --- Sponsor logos: circular frames, image fills edge-to-edge --- */
 .sponsor-logo {
     width: 80px;
     height: 80px;
@@ -439,11 +474,13 @@ body::before {
 
 .sponsor-logo img,
 .sponsor-logo svg {
+    width: 100%;
+    height: 100%;
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
     display: block;
 }
 
@@ -516,10 +553,6 @@ body::before {
     font-size: 0.9rem;
 }
 
-
-
-
-
 /* ---------------------------------------------------------
    Brand logo image — fit cleanly inside the circular frame
    --------------------------------------------------------- */
@@ -531,34 +564,17 @@ body::before {
   max-height: 100%;
   object-fit: contain;
   object-position: center;
-  border-radius: 50%; /* keeps a square PNG from showing corner bleed */
-  pointer-events: none; /* whole <a> stays clickable, not just the pixels */
+  border-radius: 50%;
+  pointer-events: none;
 }
-
-
 
 .brand__logo:has(img) { padding: 0; }
 .brand__logo:has(img) img { border-radius: 50%; object-fit: cover; }
 
-
-
-
-
 /* ---------------------------------------------------------
-   Sponsor logos — fill the circular frame edge-to-edge
+   Sponsor logos — remove padding when an image fills the frame
+   (the image itself is already sized to fill edge-to-edge above)
    --------------------------------------------------------- */
 .sponsor-logo:has(img) {
   padding: 0;
-}
-
-.sponsor-logo img,
-.sponsor-logo svg {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;
-  display: block;
 }
