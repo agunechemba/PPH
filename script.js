@@ -39,6 +39,7 @@ function renderProdigy(data) {
                 <ul class="details-list">
                     <li><strong>Year:</strong> <span>${prodigy.year}</span></li>
                     <li><strong>Full name:</strong> <span>${prodigy.fullName}</span></li>
+                    <li><strong>Age:</strong> <span>${prodigy.age ?? '—'}</span></li>
                     <li><strong>Nationality:</strong> <span>${prodigy.nationality}</span></li>
                     <li><strong>Hobbies:</strong> <span>${prodigy.hobbies}</span></li>
                     <li><strong>URL:</strong> <a href="${prodigy.url}" target="_blank">${prodigy.url}</a></li>
