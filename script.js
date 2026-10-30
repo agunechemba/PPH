@@ -1,130 +1,125 @@
-// ===== SHOW/HIDE SECTIONS =====
-window.showSection = function(sectionId) {
-  document.querySelectorAll('.content-section').forEach(el => el.classList.remove('visible'));
-  const target = document.getElementById(sectionId);
-  if (target) {
-    target.classList.add('visible');
-    setTimeout(() => {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 100);
-  }
-};
+document.addEventListener("DOMContentLoaded", () => {
+    // Auto-update footer year
+    const yearSpan = document.getElementById('year');
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 
-// Button click handlers
-document.querySelectorAll('.option-btn[data-target]').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const targetId = this.getAttribute('data-target');
-    if (targetId) showSection(targetId);
-  });
+    // Fetch and render prodigies
+    fetch('data.json')
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => renderProdigy(data))
+        .catch(error => {
+            console.error('Error fetching data:', error);
+            const container = document.getElementById('prodigy-container');
+            if (container) {
+                container.innerHTML = `<p class="empty" style="color: var(--accent);">Failed to load data. Ensure data.json exists and you are running a local server.</p>`;
+            }
+        });
+
+    // Initialize marquees
+    initMarquees();
 });
 
-// ===== HERO SLIDER (mini) =====
-(function() {
-  const slides = document.querySelectorAll('.hero-slider-mini .slide');
-  const dots = document.querySelectorAll('.hero-slider-mini .dot');
-  if (!slides.length) return;
-  let current = 0,
-    timer;
-
-  function showSlide(index) {
-    slides.forEach(s => s.classList.remove('active'));
-    dots.forEach(d => d.classList.remove('active'));
-    slides[index].classList.add('active');
-    dots[index].classList.add('active');
-  }
-
-  function rotate() { current = (current + 1) % slides.length;
-    showSlide(current); }
-
-  function startTimer() { timer = setInterval(rotate, 5000); }
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) clearInterval(timer);
-    else startTimer();
-  });
-  startTimer();
-})();
-
-// ===== JOIN FORM (from original source) =====
-(function() {
-  const form = document.getElementById('joinForm');
-  const btn = document.getElementById('joinBtn');
-  const anim = document.getElementById('successAnimation');
-  if (!form) return;
-  
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    btn.disabled = true;
-    btn.textContent = 'Applying...';
-
-    const data = new FormData(form);
-
-    // Replace the URL below with your deployed Google Apps Script Web App URL
-    fetch('https://script.google.com/macros/s/AKfycbyTlZPuJi6oIdRBH5J_fA-3J8wTIAYuh1yIv3E7mAZI-SuuOjOm8fQGcswRLHX4J1AYdA/exec', {
-      method: 'POST',
-      body: data
-    })
-    .then(res => res.text())
-    .then(response => {
-      btn.textContent = 'Applied';
-      form.reset();
-      anim.style.display = 'block';
-      anim.innerHTML = '<i style="color:#FFEA00; font-size:19px;">You have applied! Check your email for follow up.</i>';
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Submission failed. Please try again.');
-      btn.disabled = false;
-      btn.textContent = 'Apply';
+function renderProdigy(data) {
+    const container = document.getElementById('prodigy-container');
+    if (!container) return;
+    container.classList.remove('loading');
+    const prodigies = Array.isArray(data) ? data : [data];
+    container.innerHTML = '';
+    prodigies.forEach(prodigy => {
+        const cardHTML = `
+            <div class="prodigy-card">
+                <div class="image-placeholder" style="background-image: url('${prodigy.image || ''}')">
+                    ${!prodigy.image ? 'Image' : ''}
+                </div>
+                <ul class="details-list">
+                    <li><strong>Year:</strong> <span>${prodigy.year}</span></li>
+                    <li><strong>Full name:</strong> <span>${prodigy.fullName}</span></li>
+                    <li><strong>Nationality:</strong> <span>${prodigy.nationality}</span></li>
+                    <li><strong>Hobbies:</strong> <span>${prodigy.hobbies}</span></li>
+                    <li><strong>URL:</strong> <a href="${prodigy.url}" target="_blank">${prodigy.url}</a></li>
+                </ul>
+            </div>
+        `;
+        container.innerHTML += cardHTML;
     });
-  });
-})();
+}
 
-// ===== CERTIFICATE VERIFICATION =====
-(function() {
-  const verifyBtn = document.getElementById('verifyBtn');
-  const resultDiv = document.getElementById('result');
-  const certInput = document.getElementById('certificateId');
-  if (!verifyBtn) return;
-  
-  const webAppURL = "https://script.google.com/macros/s/AKfycbwPp432y_PHVxKmJdvgS_hzacky8s_OiItnElY8mhfBXjEA0sUUAFhwa5qQv4oi_49P/exec";
-  
-  verifyBtn.addEventListener('click', () => {
-    const certId = certInput.value.trim();
-    resultDiv.innerHTML = "";
-    
-    if (!certId) { 
-      resultDiv.innerHTML = '<p style="color:red;font-weight:600;">⚠️ Please enter a Certificate ID.</p>'; 
-      return; 
+/* =========================================================
+   MARQUEE LOGIC
+   ========================================================= */
+const MARQUEE_SPEED = 55; // pixels per second
+let marqueeResizeTimer;
+
+function initMarquees() {
+    const tracks = document.querySelectorAll('.marquee-track');
+    tracks.forEach(track => {
+        if (track.dataset.originalHTML) return; // already initialized
+        track.dataset.originalHTML = track.innerHTML;
+        buildMarquee(track);
+    });
+
+    // Rebuild on resize (debounced)
+    window.addEventListener('resize', () => {
+        clearTimeout(marqueeResizeTimer);
+        marqueeResizeTimer = setTimeout(() => {
+            tracks.forEach(track => buildMarquee(track));
+        }, 200);
+    });
+}
+
+function buildMarquee(track) {
+    const wrapper = track.parentElement; // .marquee-wrapper
+    if (!wrapper) return;
+
+    // Restore original items
+    track.innerHTML = track.dataset.originalHTML;
+    const originalItems = Array.from(track.children);
+    if (originalItems.length === 0) return;
+
+    // Measure wrapper width
+    const wrapperWidth = wrapper.clientWidth;
+    if (wrapperWidth === 0) return;
+
+    // Read gap from computed style
+    const style = getComputedStyle(track);
+    const gap = parseFloat(style.gap) || 0;
+
+    // Measure total width of the original items
+    let originalItemsWidth = 0;
+    originalItems.forEach(item => {
+        originalItemsWidth += item.getBoundingClientRect().width;
+    });
+
+    // Width of one full set INCLUDING the gap after the last item
+    const setWidth = originalItemsWidth + originalItems.length * gap;
+
+    // We need enough copies so that after shifting by setWidth the viewport
+    // is still filled. That means: totalCopies * setWidth - setWidth >= wrapperWidth
+    const copiesNeeded = Math.ceil(wrapperWidth / setWidth) + 1;
+    const copies = Math.max(2, copiesNeeded); // at least 2 for the loop
+
+    // Rebuild the track with the required number of copies
+    track.innerHTML = '';
+    for (let i = 0; i < copies; i++) {
+        originalItems.forEach(item => {
+            track.appendChild(item.cloneNode(true));
+        });
     }
-    
-    resultDiv.innerHTML = '<p style="color:gray;">🔍 Verifying...</p>';
-    
-    fetch(`${webAppURL}?certificateId=${encodeURIComponent(certId)}`)
-      .then(res => {
-        if (!res.ok) throw new Error("Network error");
-        return res.json();
-      })
-      .then(data => {
-        if (data.found) {
-          const studentName = data.record.Name || "a PPH Member";
-          const courseName = data.record.Course || "a PPH Program";
-          const issueDate = data.record.Date || "N/A";
 
-          resultDiv.innerHTML = `
-            <div style="border:2px solid #28a745; padding:15px; border-radius:8px; background-color:rgba(40,167,69,0.05); text-align:left; max-width:350px; margin:auto;">
-              <p style="color:#28a745; font-weight:800; margin-bottom:10px; text-align:center;">✅ OFFICIAL VERIFICATION</p>
-              <p style="margin:5px 0;"><strong>Name:</strong> ${studentName}</p>
-              <p style="margin:5px 0;"><strong>Course:</strong> ${courseName}</p>
-              <p style="margin:5px 0;"><strong>Date:</strong> ${issueDate}</p>
-              <p style="margin:5px 0;"><strong>Status:</strong> ${data.record.Status || 'Verified'}</p>
-            </div>`;
-        } else {
-          resultDiv.innerHTML = '<p style="color:red;font-weight:600;">❌ Certificate not found. Please check the ID.</p>';
-        }
-      })
-      .catch(err => { 
-        resultDiv.innerHTML = '<p style="color:red;font-weight:600;">⚠️ Connection error. Please try again.</p>';
-        console.error(err);
-      });
-  });
-})();
+    // Tell CSS how far to shift
+    track.style.setProperty('--shift', `${setWidth}px`);
+
+    // Set animation duration based on the chosen speed
+    const duration = setWidth / MARQUEE_SPEED;
+    track.style.animationDuration = `${duration}s`;
+
+    // Ensure the animation is applied (in case CSS was overridden)
+    track.style.animationName = 'slide';
+    track.style.animationTimingFunction = 'linear';
+    track.style.animationIterationCount = 'infinite';
+}

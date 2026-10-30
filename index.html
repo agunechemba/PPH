@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PPH</title>
-  <meta name="description" content="Prime Programmers Hub (PPH) – A global community of young programmers. Join the community, meet prodigies, verify certificates and more." />
+  <meta name="description" content="Prime Programmers Hub (PPH) – Celebrating Prodigies Since 2020" />
   <link rel="canonical" href="https://pph.name.ng/" />
-  <link rel="icon" href="pphlogo.svg" />
+  <link rel="icon" href="https://pph.name.ng/pphlogo.svg" />
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -20,12 +19,14 @@
   <!-- Google AdSense -->
   <meta name="google-adsense-account" content="ca-pub-4977678185530379" />
 
+  <link rel="stylesheet" href="./style.css">
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "EducationalOrganization",
       "name": "Prime Programmers Hub",
-      "description": "A global community of young programmers.",
+      "description": "Celebrating Prodigies Since 2020",
       "url": "https://pph.name.ng/",
       "logo": "pphlogo.svg",
       "founder": {
@@ -39,271 +40,157 @@
     }
   </script>
 </head>
-
 <body>
-  <!-- <a class="skip" href="#main">Skip to content</a> -->
 
-  <!-- ====== CHAT (always visible) ====== -->
-  <div class="chat-wrapper" id="main">
-    <div class="chat-card">
-      <div class="chat-header">
-        <img src="pphlogo.svg" alt="PPH logo"/>
-        <span class="name">Prime Programmers Hub</span>
-        <span class="badge">Since 2020</span>
-      </div>
-
-      <!-- ===== HERO + HOME inside chat ===== -->
-      <div class="hero-in-chat">
-        <div class="hero-slider-mini">
-          <div class="slide active">
-            <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-4.jpeg" alt="PPH Creators" />
-          </div>
-          <div class="slide">
-            <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-3.png" alt="PPH Creators" />
-          </div>
-          <div class="slide">
-            <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-2.png" alt="PPH Creators" />
-          </div>
-          <div class="slide">
-            <img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/08/pph-slide-1.png" alt="PPH Creators" />
-          </div>
-          <div class="slider-dots">
-            <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          </div>
+    <!-- Section 1: Fixed Header -->
+    <header class="header">
+        <div class="header__inner">
+            <a href="#" class="brand">
+<div class="brand__logo">
+  <img src="https://pph.name.ng/pphlogo.svg" alt="PPH" />
+</div>
+            </a>
+            <nav class="nav">
+                <a href="#socials-section">Socials</a>
+                <a href="#sponsors-section">Sponsors</a>
+                <a href="https://chat.whatsapp.com/DHz4JB9D1FF1iREzSLNFUL" class="cta">Community</a>
+            </nav>
         </div>
+    </header>
 
-        <!-- <h1 class="title">Prime Programmers Hub</h1> -->
-        <p class="sub">A global community of young programmers.</p>
-        <div class="cta-mini">
-          <a class="btn primary" href="#" onclick="showSection('section-join');return false;">🚀 Join PPH</a>
-          <a class="btn" href="https://agunechemba.github.io/" target="_blank" rel="noopener">📝 Blog Posts</a>
-        </div>
-      </div>
+    <main>
+        <!-- Intro / Hero (Adapted from theme) -->
+        <section class="hero">
+            <div class="eyebrow">Celebrating Prodigies Since 2020</div>
+            <h1>Prime Programmers <em>Hub</em>.</h1>
+        </section>
 
-      <!-- ===== QUESTION & BOX BUTTONS ===== -->
-      <div class="chat-message">
-        <div class="question">What do you want?</div>
+        <!-- Section 2: Prodigies Details -->
+        <section id="prodigies-section" class="container" style="padding-top: 0;">
+            <div id="prodigy-container" class="posts loading">
+                <p class="empty">Loading data...</p>
+            </div>
+        </section>
 
-        <div class="options-grid">
-          <button class="option-btn" data-target="section-about">
-            <span class="emoji">📖</span>
-            <span class="label">About</span>
-          </button>
-          <button class="option-btn" data-target="section-ads">
-            <span class="emoji">🛍️</span>
-            <span class="label">Ads &amp; Deals</span>
-          </button>
-          <button class="option-btn" data-target="section-prodigies">
-            <span class="emoji">🏆</span>
-            <span class="label">Prodigies</span>
-          </button>
-          <button class="option-btn primary" data-target="section-join">
-            <span class="emoji">🚀</span>
-            <span class="label">Join Community</span>
-          </button>
-          <button class="option-btn" data-target="section-testimonials">
-            <span class="emoji">💬</span>
-            <span class="label">Success Stories</span>
-          </button>
-          <button class="option-btn" data-target="section-certificates">
-            <span class="emoji">📜</span>
-            <span class="label">Verify Certificate</span>
-          </button>
-          <button class="option-btn" data-target="section-team">
-            <span class="emoji">👥</span>
-            <span class="label">Meet the Team</span>
-          </button>
-          <button class="option-btn" data-target="section-sponsors">
-            <span class="emoji">🤝</span>
-            <span class="label">Sponsors</span>
-          </button>
-        </div>
+        <!-- Section 3: Sponsors -->
+<section id="sponsors-section" class="container" style="padding-bottom: 20px;">
+  <h2 class="eyebrow" style="text-align: center; margin-bottom: 20px;">Sponsors</h2>
+  <div class="marquee-wrapper">
+    <!-- Only ONE set lives in the HTML.
+         script.js clones it as many times as needed. -->
+    <div class="marquee-track sponsors-track">
+
+      <div class="sponsor-logo">
+        <img src="https://i.ibb.co/vv1svn9w/Raspberry-Pi-Logo.jpg"
+             alt="Raspberry Pi" title="Raspberry Pi" />
       </div>
 
-      <div class="chat-footer">
-        <span>© 2026 PPH</span>
-        <span><button class="btn" style="height:auto;padding:0.2rem 0.8rem;background:transparent;border:1px solid rgba(255,255,255,0.1);border-radius:30px;font-size:0.7rem;" onclick="document.querySelector('.chat-wrapper').scrollIntoView({behavior:'smooth'})">↑ top</button></span>
-        <span>🤖 <span style="color:#6f7d6a;">click a box to explore</span></span>
+      <div class="sponsor-logo">
+        <img src="https://i.ibb.co/XkjM99Tt/Code-Club-Green.png"
+             alt="Code Club" title="Code Club" />
       </div>
-    </div>
-  </div>
 
-  <!-- ====== ALL CONTENT SECTIONS (hidden by default) ====== -->
-  <main>
-    <!-- ABOUT (separated) -->
-    <section id="section-about" class="content-section">
-      <div class="panel">
-        <div class="about-grid">
-          <div class="about-item">
-            <h2 class="big">Why Join Our Community?</h2>
-            <p>Grow inside a lively global network of young programmers who share ideas, build together, and lift one another from curiosity to confidence.</p>
-          </div>
-          <div class="about-item">
-            <h2 class="big">Events &amp; Workshops</h2>
-            <p>We unite our global community with year-round meetups, free workshops, and an annual end-of-year gathering wherever our members come together.</p>
-          </div>
-        </div>
+      <div class="sponsor-logo">
+        <img src="https://i.ibb.co/yxXXm6t/microbit.png"
+             alt="micro:bit" title="micro:bit" />
       </div>
-    </section>
 
-    <!-- ADS (separated) -->
-    <section id="section-ads" class="content-section">
-      <div class="panel" style="text-align:center;">
-        <h2 class="big">Exclusive Deals &amp; Discounts</h2>
-        <p class="muted" style="margin-bottom:0.5rem;">Grab these offers from our trusted partners</p>
-        <div class="ad-container">
-          <a href="https://ng.oraimo.com?affiliate_code=894pqalk" target="_blank" rel="nofollow"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/04/2.jpg" alt="Oraimo affiliate" /></a>
-          <a href="https://shopinverse.com?sca_ref=6828905.dmXbRSTitR" target="_blank" rel="nofollow"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2026/04/1.jpg" alt="Shopinverse affiliate" /></a>
-          <a href="https://app.go54.com/signup?aff=ekenea_IRFXE" target="_blank" rel="nofollow"><img src="https://eu2.contabostorage.com/0929d2ec15194ce3b3cba7a318485ab8:go54/Affiliate/336x280/affilliates-5.1.webp" alt="Go54 affiliate" /></a>
-        </div>
+      <div class="sponsor-logo">
+        <img src="https://i.ibb.co/k2ymRB0Q/scratch-foundation.jpg"
+             alt="Scratch Foundation" title="Scratch Foundation" />
       </div>
-    </section>
 
-    <!-- PRODIGIES -->
-    <section id="section-prodigies" class="content-section">
-      <header class="section-head"><h2 class="big">Meet the Prime Prodigies</h2><p class="muted">Celebrating creators from 2020–2026</p></header>
-      <div class="gallery">
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/emmanuel-okiri.jpg" alt="Emmanuel" /><figcaption>Emmanuel — Python Prodigy 2025</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/great-e1755909629853.png" alt="Great" /><figcaption>Great — JavaScript Prodigy 2025</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/imoh-e1755909658586.png" alt="Imoh" /><figcaption>Imoh — Python Prodigy 2024</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/chibuchi-e1755909599707.png" alt="Chibuchi" /><figcaption>Chibuchi — Blockly Prodigy 2024</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/evans-e1755909397669.jpg" alt="Evans" /><figcaption>Evans — HTML Canvas Prodigy 2023</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/noelion-e1755909545347.png" alt="Noelion" /><figcaption>Noelion — JavaScript Prodigy 2023</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/karyn.jpg" alt="Karyn" /><figcaption>Karyn — HTML, CSS Prodigy 2022</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/jason.jpg" alt="Jason" /><figcaption>Jason — Scratch Prodigy 2022</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/benjamin.jpg" alt="Benjamin" /><figcaption>Benjamin — JavaScript Prodigy 2022</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/osayemi-e1755909574469.jpg" alt="Osayemi" /><figcaption>Osayemi — CSS Prodigy 2022</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/onyinye-agu.jpg" alt="Onyinye" /><figcaption>Onyinye — Blockly Prodigy 2021</figcaption></figure>
-        <figure class="card"><img src="https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/kushe.jpg" alt="Kushe" /><figcaption>Kushe — CSS Prodigy 2021</figcaption></figure>
+      <div class="sponsor-logo">
+        <img src="https://i.ibb.co/sdC9cQJ4/Google-skills.png"
+             alt="Google Skills" title="Google Skills" />
       </div>
-    </section>
 
-    <!-- JOIN (application form) -->
-    <section id="section-join" class="content-section">
-      <div class="panel join" style="text-align:center;padding:2rem 1.5rem;">
-        <h2 class="big">Become a Creator</h2>
-        <form id="joinForm" style="max-width:400px;margin:auto;">
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <input type="tel" name="phone" placeholder="Phone number" minlength="7" />
-          <button type="submit" id="joinBtn" class="btn primary" style="width:100%;border-radius:8px;">Apply</button>
-        </form>
-        <div id="successAnimation" style="display:none;margin-top:20px;"></div>
+      <div class="sponsor-logo">
+        <img src="https://i.ibb.co/FbYDRpbv/clasam.jpg"
+             alt="Clasam Schools" title="Clasam Schools" />
       </div>
-    </section>
 
-<!-- TESTIMONIALS -->
-<section id="section-testimonials" class="content-section">
-  <div class="panel testimonials">
-    <h2 class="big">Success Stories</h2>
-    <p class="muted" style="margin-bottom: 1rem;">What our community members say about their experience</p>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-text">"Prime Programmers Hub gave me the confidence to build my first website. Now I'm teaching my friends how to code too!"</div>
-        <div class="testimonial-author">— Great, 13</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-text">"My mentor is so friendly and helpful. I love the community projects and challenges!"</div>
-        <div class="testimonial-author">— James, 11</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-text">"Before joining, I thought coding was too hard. But the bootcamps made it easy and fun!"</div>
-        <div class="testimonial-author">— Joel, 14</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-text">"I've learned Python, made a game, and even presented my app to my school! Thanks Prime Hub!"</div>
-        <div class="testimonial-author">— Aiden, 14</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-text">"Joining Prime Programmers Hub connected me with peers who pushed me to complete real projects and sharpen my skills."</div>
-        <div class="testimonial-author">— Daniel, 12</div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-text">"The community is amazing! I collaborated on web apps, attended bootcamps, and now mentor juniors."</div>
-        <div class="testimonial-author">— Fatima, 12</div>
-      </div>
     </div>
   </div>
 </section>
 
-    <!-- CERTIFICATES -->
-    <section id="section-certificates" class="content-section">
-      <div class="panel" style="text-align:center;">
-        <h2 class="big">Certificate Verification</h2>
-        <p>Validate the authenticity of PPH certificates.</p>
-        <div style="max-width:400px;margin:auto;">
-          <input type="text" id="certificateId" placeholder="Enter Certificate ID" style="width:100%;padding:12px;margin-bottom:10px;border-radius:8px;border:1px solid #444;background:#1e2a1e;color:#fff;" />
-          <button id="verifyBtn" class="btn primary" style="width:100%;border-radius:8px;">Verify Authenticity</button>
-        </div>
-        <div id="result" style="margin-top:20px;"></div>
-      </div>
-    </section>
 
-    <!-- TEAM -->
-    <section id="section-team" class="content-section">
-      <div class="panel team"><div><h2 class="big">Agunechemba Ekene</h2><p><strong>Founder</strong></p><div style="margin-top:1.5rem;"><a class="btn primary" href="https://agunechemba.name.ng/" target="_blank">Connect</a></div></div></div>
-      <br />
-      <div class="panel team"><div><h2 class="big">Kolawole Elizabeth</h2><p><strong>Co-Founder</strong></p><div style="margin-top:1.5rem;"><a class="btn primary" href="https://wa.me/2348034982898" target="_blank">Connect</a></div></div></div>
-    </section>
 
-    <!-- SPONSORS -->
-<!-- SPONSORS -->
-<section id="section-sponsors" class="content-section">
-  <div class="sponsors-section" style="margin-top:0;">
-    <div class="sponsors-header">
-      <span class="eyebrow-sm" style="font-weight:800;color:var(--brand);text-transform:uppercase;">Empowered By</span>
-      <p class="muted">Our Sponsors &amp; Partners</p>
-    </div>
-    <div class="sponsors-grid">
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/vv1svn9w/Raspberry-Pi-Logo.jpg" alt="Raspberry Pi" />
-        </div>
-        <span class="sponsor-name">Raspberry Pi</span>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/XkjM99Tt/Code-Club-Green.png" alt="Code Club" />
-        </div>
-        <span class="sponsor-name">Code Club</span>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/yxXXm6t/microbit.png" alt="micro:bit" />
-        </div>
-        <span class="sponsor-name">micro:bit</span>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/k2ymRB0Q/scratch-foundation.jpg" alt="Scratch" />
-        </div>
-        <span class="sponsor-name">Scratch Foundation</span>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/sdC9cQJ4/Google-skills.png" alt="Google Skills" />
-        </div>
-        <span class="sponsor-name">Google Skills</span>
-      </div>
-      <div class="sponsor-card">
-        <div class="sponsor-img-wrapper">
-          <img src="https://i.ibb.co/FbYDRpbv/clasam.jpg" alt="Clasam" />
-        </div>
-        <span class="sponsor-name">Clasam Schools</span>
-      </div>
+<!-- Section 4: Socials -->
+<section id="socials-section" class="container" style="padding-bottom: 60px;">
+  <h2 class="eyebrow" style="text-align: center; margin-bottom: 20px;">Socials</h2>
+  <div class="marquee-wrapper">
+    <div class="marquee-track socials-track">
+
+      <!-- WhatsApp -->
+      <a class="social-icon"
+         href="https://chat.whatsapp.com/DHz4JB9D1FF1iREzSLNFUL"
+         aria-label="WhatsApp"
+         title="WhatsApp"
+         target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+
+      <!-- Facebook -->
+      <a class="social-icon"
+         href="#"
+         aria-label="Facebook"
+         title="Facebook"
+         target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a class="social-icon"
+         href="#"
+         aria-label="Instagram"
+         title="Instagram"
+         target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+      </a>
+
+      <!-- Discord -->
+      <a class="social-icon"
+         href="#"
+         aria-label="Discord"
+         title="Discord"
+         target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189z"/>
+        </svg>
+      </a>
+
+            <!-- Google Classroom (Google G) -->
+      <a class="social-icon"
+         href="#"
+         aria-label="Google Classroom"
+         title="Google Classroom"
+         target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor" aria-hidden="true" focusable="false">
+          <path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.344-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z"/>
+        </svg>
+      </a>
+
     </div>
   </div>
 </section>
-  </main>
 
-  <footer>
-    <p>© 2026 Prime Programmers Hub. Empowering the next generation of global developers.</p>
-    <button class="btn" style="margin-top:0.5rem;height:auto;padding:0.4rem 1.2rem;background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:30px;" onclick="document.querySelector('.chat-wrapper').scrollIntoView({behavior:'smooth'})">Back to chat ↑</button>
-  </footer>
+       
+    </main>
 
-  <!-- JavaScript Files -->
-  <!-- <script src="code-bg.js"></script> -->
-  <script src="script.js"></script>
+    <!-- Section 5: Footer -->
+    <footer class="footer">
+        <div class="footer__inner">
+            <span>Prime Programmers Hub &copy; <span id="year">2026</span></span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
