@@ -1,11 +1,37 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Auto-update footer year
+/* =========================================================
+   FOOTER YEAR — auto-increment, future-proof against
+   async/defer/dynamic script loading
+   ========================================================= */
+function setFooterYear() {
     const yearSpan = document.getElementById('year');
     if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+        // Local year (flips at the visitor's local midnight).
+        // Use new Date().getUTCFullYear() if you want a single
+        // worldwide flip at 00:00 UTC instead.
+        yearSpan.textContent = String(new Date().getFullYear());
     }
+}
 
-    // Fetch and render prodigies
+/* =========================================================
+   BOOTSTRAP
+   ========================================================= */
+function init() {
+    setFooterYear();
+    fetchProdigies();
+    initMarquees();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    // DOM is already parsed — run immediately.
+    init();
+}
+
+/* =========================================================
+   PRODIGIES
+   ========================================================= */
+function fetchProdigies() {
     fetch('data.json')
         .then(response => {
             if (!response.ok) throw new Error('Network response was not ok');
@@ -19,10 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 container.innerHTML = `<p class="empty" style="color: var(--accent);">Failed to load data. Ensure data.json exists and you are running a local server.</p>`;
             }
         });
-
-    // Initialize marquees
-    initMarquees();
-});
+}
 
 function renderProdigy(data) {
     const container = document.getElementById('prodigy-container');
