@@ -5,8 +5,6 @@
 
 /* =========================================================
    1. DESIGN TOKENS
-   Light is the default palette. The dark block further down
-   overrides the same variables when the OS prefers dark.
    ========================================================= */
 :root {
   color-scheme: light dark;
@@ -156,7 +154,6 @@ body::before {
   text-decoration: none;
 }
 
-/* Logo icon frame — circular, padded, fits any child */
 .brand__logo {
   width: 34px;
   height: 34px;
@@ -370,7 +367,7 @@ body::before {
     border-bottom: 1px dashed var(--line-strong);
     padding-bottom: 8px;
     color: var(--body);
-    overflow-wrap: anywhere; /* lets long URLs wrap instead of overflowing the card */
+    overflow-wrap: anywhere;
 }
 
 .details-list strong {
@@ -381,17 +378,50 @@ body::before {
 }
 
 /* ---------------------------------------------------------
-   URL link inside prodigy cards
+   URL row: label + link side by side, link truncates with "…"
    --------------------------------------------------------- */
+.details-list li:has(a) {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.details-list li:has(a) strong {
+    flex: none;
+}
+
+/* External-link arrow, kept as a sibling of the anchor so it
+   is never clipped when the URL itself is truncated. */
+.details-list li:has(a)::after {
+    content: "\2197"; /* ↗ */
+    flex: none;
+    font-size: 0.85em;
+    color: var(--accent);
+    opacity: 0.65;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.details-list li:has(a):hover::after {
+    opacity: 1;
+    transform: translate(1px, -1px);
+}
+
+/* The link itself — monospace, ellipsis when too long */
 .details-list a {
     color: var(--accent);
     text-decoration: none;
     font-family: var(--mono);
     font-size: 0.88em;
-    overflow-wrap: anywhere;
-    word-break: break-word;
     border-bottom: 1px solid var(--accent-line);
     transition: color 0.2s ease, border-color 0.2s ease;
+
+    /* Truncation setup */
+    flex: 1 1 0;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .details-list a:hover,
@@ -404,20 +434,6 @@ body::before {
     outline: 2px solid var(--accent);
     outline-offset: 3px;
     border-radius: 3px;
-}
-
-/* External-link arrow after the URL */
-.details-list a::after {
-    content: " \2197"; /* ↗ */
-    font-size: 0.85em;
-    opacity: 0.65;
-    display: inline-block;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.details-list a:hover::after {
-    opacity: 1;
-    transform: translate(1px, -1px);
 }
 
 /* Marquee Animations */
@@ -439,7 +455,6 @@ body::before {
     will-change: transform;
 }
 
-/* The --shift variable is set by JavaScript to the width of one full set. */
 @keyframes slide {
     0%   { transform: translateX(0); }
     100% { transform: translateX(calc(-1 * var(--shift, 0px))); }
@@ -451,11 +466,8 @@ body::before {
 
 /* =========================================================
    SPONSOR & SOCIAL ICON FRAMES
-   Each frame centers and contains its child (img, svg, or
-   font-icon) so nothing bleeds past the border.
    ========================================================= */
 
-/* --- Sponsor logos: circular frames, image fills edge-to-edge --- */
 .sponsor-logo {
     width: 80px;
     height: 80px;
@@ -488,7 +500,6 @@ body::before {
     border-color: var(--accent);
 }
 
-/* --- Social icons: rounded-square frames --- */
 .social-icon {
     width: 64px;
     height: 64px;
@@ -521,7 +532,6 @@ body::before {
     color: var(--accent);
 }
 
-/* --- Optional gentle pop on the icon itself, not the frame --- */
 .sponsor-logo img,
 .sponsor-logo svg,
 .social-icon img,
@@ -536,14 +546,12 @@ body::before {
     transform: scale(1.1);
 }
 
-/* Utility to match the container padding from the theme */
 .container {
     max-width: var(--maxw);
     margin: 0 auto;
     padding: 40px 20px;
 }
 
-/* Customizing the Loading State */
 .loading .empty {
     grid-column: 1 / -1;
     padding: 64px 20px;
@@ -573,7 +581,6 @@ body::before {
 
 /* ---------------------------------------------------------
    Sponsor logos — remove padding when an image fills the frame
-   (the image itself is already sized to fill edge-to-edge above)
    --------------------------------------------------------- */
 .sponsor-logo:has(img) {
   padding: 0;
