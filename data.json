@@ -2,14 +2,16 @@
   {
     "year": "2025",
     "fullName": "Emmanuel Okiri",
+    "age": 11,
     "nationality": "Nigerian",
     "hobbies": "Python, Coding, Chess",
     "url": "https://agunechemba.name.ng/",
-    "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/emmanuel-okiri.jpg"
+    "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2026/10/emmanuel-okiri.jpg"
   },
   {
     "year": "2025",
     "fullName": "Great Riliwani",
+    "age": 12,
     "nationality": "Nigerian",
     "hobbies": "JavaScript, Reading, Logic",
     "url": "https://agunechemba.name.ng/",
@@ -18,6 +20,7 @@
   {
     "year": "2024",
     "fullName": "Imoh David",
+    "age": 10,
     "nationality": "Nigerian",
     "hobbies": "Python, Maths, Coding",
     "url": "https://agunechemba.name.ng/",
@@ -26,6 +29,7 @@
   {
     "year": "2024",
     "fullName": "Chibuchi Imiefoh",
+    "age": 9,
     "nationality": "Nigerian",
     "hobbies": "Blockly, Chess, Logic",
     "url": "https://agunechemba.name.ng/",
@@ -34,6 +38,7 @@
   {
     "year": "2023",
     "fullName": "Evans Ighazukor",
+    "age": 13,
     "nationality": "Nigerian",
     "hobbies": "HTML Canvas, Coding, Reading",
     "url": "https://agunechemba.name.ng/",
@@ -42,6 +47,7 @@
   {
     "year": "2023",
     "fullName": "Neolion Odeyemi",
+    "age": 8,
     "nationality": "Nigerian",
     "hobbies": "JavaScript, Maths, Chess",
     "url": "https://agunechemba.name.ng/",
@@ -50,6 +56,7 @@
   {
     "year": "2022",
     "fullName": "Kayrn Adeleye",
+    "age": 12,
     "nationality": "Nigerian",
     "hobbies": "HTML/CSS, Reading, Logic",
     "url": "https://agunechemba.name.ng/",
@@ -58,6 +65,7 @@
   {
     "year": "2022",
     "fullName": "Jason Adeleye",
+    "age": 10,
     "nationality": "Nigerian",
     "hobbies": "Scratch, Coding, Chess",
     "url": "https://agunechemba.name.ng/",
@@ -66,6 +74,7 @@
   {
     "year": "2022",
     "fullName": "Benjamin Okoye",
+    "age": 11,
     "nationality": "Nigerian",
     "hobbies": "JavaScript, Maths, Logic",
     "url": "https://agunechemba.name.ng/",
@@ -74,6 +83,7 @@
   {
     "year": "2022",
     "fullName": "Nifemi Osayemi",
+    "age": 9,
     "nationality": "American",
     "hobbies": "CSS, Reading, Maths",
     "url": "https://agunechemba.name.ng/",
@@ -82,6 +92,7 @@
   {
     "year": "2021",
     "fullName": "Onyinye Agu",
+    "age": 13,
     "nationality": "Nigerian",
     "hobbies": "Blockly, Chess, Coding",
     "url": "https://agunechemba.name.ng/",
@@ -90,6 +101,7 @@
   {
     "year": "2021",
     "fullName": "Kushe Layiareo",
+    "age": 8,
     "nationality": "Nigerian",
     "hobbies": "CSS, Logic, Reading",
     "url": "https://agunechemba.name.ng/",
