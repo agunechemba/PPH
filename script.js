@@ -65,7 +65,7 @@ function fetchProdigies() {
             console.error('Error fetching data:', error);
             const container = document.getElementById('prodigy-container');
             if (container) {
-                container.innerHTML = `<p class="empty" style="color: var(--accent);">Failed to load data. Ensure data.json exists and you are running a local server.</p>`;
+                container.innerHTML = `<p class="empty" style="color: var(--accent);">Failed to load data.</p>`;
             }
         });
 }
