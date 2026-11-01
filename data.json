@@ -9,12 +9,12 @@
     "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2026/10/emmanuel-okiri.jpg"
   },
   {
-    "year": "2025",
+    "year": "2024",
     "fullName": "Great Riliwani",
     "age": 12,
     "nationality": "Nigerian",
     "hobbies": "JavaScript, Reading, Logic",
-    "url": "https://agunechemba.name.ng/",
+    "url": "https://agunechemba.name.ng/#/post/clasam-schools-programming-whiz-kids",
     "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/great-e1755909629853.png"
   },
   {
@@ -23,8 +23,17 @@
     "age": 10,
     "nationality": "Nigerian",
     "hobbies": "Python, Maths, Coding",
-    "url": "https://agunechemba.name.ng/",
+    "url": "https://agunechemba.name.ng/#/post/clasam-schools-programming-whiz-kids",
     "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/imoh-e1755909658586.png"
+  },
+  {
+    "year": "2024",
+    "fullName": "Neolion Odeyemi",
+    "age": 8,
+    "nationality": "Nigerian",
+    "hobbies": "JavaScript, Maths, Chess",
+    "url": "https://agunechemba.name.ng/#/post/clasam-schools-programming-whiz-kids",
+    "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/noelion-e1755909545347.png"
   },
   {
     "year": "2024",
@@ -32,7 +41,7 @@
     "age": 9,
     "nationality": "Nigerian",
     "hobbies": "Blockly, Chess, Logic",
-    "url": "https://agunechemba.name.ng/",
+    "url": "https://agunechemba.name.ng/#/post/clasam-schools-programming-whiz-kids",
     "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/chibuchi-e1755909599707.png"
   },
   {
@@ -45,21 +54,12 @@
     "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/evans-e1755909397669.jpg"
   },
   {
-    "year": "2023",
-    "fullName": "Neolion Odeyemi",
-    "age": 8,
-    "nationality": "Nigerian",
-    "hobbies": "JavaScript, Maths, Chess",
-    "url": "https://agunechemba.name.ng/",
-    "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/08/noelion-e1755909545347.png"
-  },
-  {
     "year": "2022",
     "fullName": "Kayrn Adeleye",
     "age": 12,
     "nationality": "Nigerian",
     "hobbies": "HTML/CSS, Reading, Logic",
-    "url": "https://agunechemba.name.ng/",
+    "url": "https://agunechemba.name.ng/Adeleye-Karyn-project-on-portfolio/",
     "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/karyn.jpg"
   },
   {
@@ -91,20 +91,20 @@
   },
   {
     "year": "2021",
+    "fullName": "Kushe Layiareo",
+    "age": 8,
+    "nationality": "Nigerian",
+    "hobbies": "CSS, Logic, Reading",
+    "url": "https://agunechemba.name.ng/Kushe-Areo-project-on-portfolio/",
+    "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/kushe.jpg"
+  },
+  {
+    "year": "2021",
     "fullName": "Onyinye Agu",
     "age": 13,
     "nationality": "Nigerian",
     "hobbies": "Blockly, Chess, Coding",
     "url": "https://agunechemba.name.ng/",
     "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/onyinye-agu.jpg"
-  },
-  {
-    "year": "2021",
-    "fullName": "Kushe Layiareo",
-    "age": 8,
-    "nationality": "Nigerian",
-    "hobbies": "CSS, Logic, Reading",
-    "url": "https://agunechemba.name.ng/",
-    "image": "https://agunechembaekene.wordpress.com/wp-content/uploads/2025/10/kushe.jpg"
   }
 ]
